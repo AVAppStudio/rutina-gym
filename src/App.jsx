@@ -39,7 +39,7 @@ const routine = [
   {
     day: 3,
     label: "ESPALDA & BÍCEPS",
-    emoji: "🦾",
+    emoji: "🏋️‍♀️",
     color: "#0D9488",
     accent: "#99F6E4",
     focus: "Tracción + Grosor",
