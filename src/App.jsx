@@ -10,12 +10,12 @@ const routine = [
     focus: "Activación + Fuerza",
     tip: "Aprieta el glúteo 2 segundos arriba en cada repetición — ahí está el dinero",
     exercises: [
-      { name: "Hip Thrust en Máquina", sets: 4, reps: "8-10", rest: "2 min", notes: "Empuje desde talones, contrae glúteo arriba y mantén 2 seg", type: "compound" },
-      { name: "Sentadilla Multipower pies abiertos", sets: 4, reps: "10-12", rest: "90 seg", notes: "Pies a la anchura de hombros con puntas hacia fuera, baja hasta paralelo", type: "compound" },
-      { name: "Good Morning en Multipower", sets: 3, reps: "10-12", rest: "90 seg", notes: "Barra en trapecios, bisagra de cadera hacia atrás, espalda recta, siente el isquio", type: "compound" },
-      { name: "Abducción en Máquina", sets: 3, reps: "12-15", rest: "60 seg", notes: "Movimiento controlado, no uses impulso, enfoca glúteo medio", type: "isolation" },
-      { name: "Peso Muerto en Smith", sets: 3, reps: "12", rest: "90 seg", notes: "Pies bajo la barra, espalda neutra, empuja el suelo al subir", type: "compound" },
-      { name: "Patada de Glúteo en Máquina", sets: 3, reps: "15", rest: "45 seg", notes: "Extensión completa de cadera, no gires el tronco", type: "isolation" },
+      { name: "Hip Thrust en Máquina", sets: 4, reps: "8-10", rest: "2 min", notes: "Empuje desde talones, contrae glúteo arriba y mantén 2 seg", type: "compound", video: "https://www.youtube.com/shorts/zzFpqhVxxj8" },
+      { name: "Sentadilla Multipower pies abiertos", sets: 4, reps: "10-12", rest: "90 seg", notes: "Pies a la anchura de hombros con puntas hacia fuera, baja hasta paralelo", type: "compound", video: "https://youtube.com/shorts/rQw8GUzpj1I" },
+      { name: "Good Morning en Multipower", sets: 3, reps: "10-12", rest: "90 seg", notes: "Barra en trapecios, bisagra de cadera hacia atrás, espalda recta, siente el isquio", type: "compound", video: "https://www.youtube.com/shorts/BXLsy0vfKNE" },
+      { name: "Abducción en Máquina", sets: 3, reps: "12-15", rest: "60 seg", notes: "Movimiento controlado, no uses impulso, enfoca glúteo medio", type: "isolation", video: "https://www.youtube.com/shorts/ghrWOwqn5eM" },
+      { name: "Peso Muerto en Smith", sets: 3, reps: "12", rest: "90 seg", notes: "Pies bajo la barra, espalda neutra, empuja el suelo al subir", type: "compound", video: "https://www.youtube.com/shorts/ki15Z8rPhOc" },
+      { name: "Patada de Glúteo en Máquina", sets: 3, reps: "15", rest: "45 seg", notes: "Extensión completa de cadera, no gires el tronco", type: "isolation", video: "https://www.youtube.com/shorts/7dAyon8VTz4" },
     ]
   },
   {
@@ -27,13 +27,13 @@ const routine = [
     focus: "Empuje completo tren superior",
     tip: "Orden: pecho primero, hombro segundo, tríceps al final — de mayor a menor músculo",
     exercises: [
-      { name: "Press Banca Máquina", sets: 4, reps: "8-10", rest: "2 min", notes: "Escápulas juntas y abajo, empuja sin despegar la espalda del respaldo", type: "compound" },
-      { name: "Press Inclinado Máquina", sets: 4, reps: "8-10", rest: "90 seg", notes: "Inclinación 30-45°, enfoca la parte alta del pecho", type: "compound" },
-      { name: "Aperturas en Máquina (pec deck)", sets: 3, reps: "12-15", rest: "60 seg", notes: "Arco amplio, contracción 1 seg en el centro, baja controlado", type: "isolation" },
-      { name: "Press Militar Máquina", sets: 4, reps: "8-10", rest: "90 seg", notes: "Empuje vertical, no arquees la lumbar, codos ligeramente adelante", type: "compound" },
-      { name: "Aperturas Laterales Máquina", sets: 3, reps: "12-15", rest: "60 seg", notes: "Codos ligeramente flexionados, sube hasta altura de hombros, baja lento", type: "isolation" },
-      { name: "Extensión Tríceps Individual (polea)", sets: 3, reps: "10-12", rest: "60 seg", notes: "Codo fijo al cuerpo, extensión completa, un brazo cada vez", type: "isolation" },
-      { name: "Extensión Tríceps Polea Alta (cuerda)", sets: 3, reps: "12-15", rest: "60 seg", notes: "Abre la cuerda al final del movimiento, codos pegados al cuerpo", type: "isolation" },
+      { name: "Press Banca Máquina", sets: 4, reps: "8-10", rest: "2 min", notes: "Escápulas juntas y abajo, empuja sin despegar la espalda del respaldo", type: "compound", video: "https://www.youtube.com/shorts/YC91F8zHZn4" },
+      { name: "Press Inclinado Máquina", sets: 4, reps: "8-10", rest: "90 seg", notes: "Inclinación 30-45°, enfoca la parte alta del pecho", type: "compound", video: "https://www.youtube.com/shorts/JXJmPXlqwh0" },
+      { name: "Aperturas en Máquina (pec deck)", sets: 3, reps: "12-15", rest: "60 seg", notes: "Arco amplio, contracción 1 seg en el centro, baja controlado", type: "isolation", video: "https://www.youtube.com/shorts/-9JbjkG5f0Q" },
+      { name: "Press Militar Máquina", sets: 4, reps: "8-10", rest: "90 seg", notes: "Empuje vertical, no arquees la lumbar, codos ligeramente adelante", type: "compound", video: "https://www.youtube.com/shorts/smuOqyk1HUQ" },
+      { name: "Aperturas Laterales Máquina", sets: 3, reps: "12-15", rest: "60 seg", notes: "Codos ligeramente flexionados, sube hasta altura de hombros, baja lento", type: "isolation", video: "https://www.youtube.com/shorts/i-hacjW13ts" },
+      { name: "Extensión Tríceps Individual (polea)", sets: 3, reps: "10-12", rest: "60 seg", notes: "Codo fijo al cuerpo, extensión completa, un brazo cada vez", type: "isolation", video: "https://www.youtube.com/shorts/hip11n3QXzU" },
+      { name: "Extensión Tríceps Polea Alta (cuerda)", sets: 3, reps: "12-15", rest: "60 seg", notes: "Abre la cuerda al final del movimiento, codos pegados al cuerpo", type: "isolation", video: "https://youtube.com/shorts/uvrH-ceZg_Q" },
     ]
   },
   {
@@ -45,12 +45,12 @@ const routine = [
     focus: "Tracción + Grosor",
     tip: "Imagina que intentas meter los codos al bolsillo trasero — activa la espalda entera",
     exercises: [
-      { name: "Jalón al Pecho", sets: 4, reps: "6-10", rest: "2 min", notes: "Agarre prono ancho, lleva la barra al pecho, retrae escápulas al bajar", type: "compound" },
-      { name: "Remo con Barra Sentado (polea baja)", sets: 4, reps: "8-10", rest: "90 seg", notes: "Pecho afuera, tira hacia el ombligo, no redondees la lumbar", type: "compound" },
-      { name: "Remo Máquina Cerrada", sets: 3, reps: "10-12", rest: "75 seg", notes: "Agarre neutro, aprieta escápulas al final del recorrido", type: "compound" },
-      { name: "Face Pull con Cuerda", sets: 3, reps: "15", rest: "60 seg", notes: "Codos altos a la altura de los hombros, tira hacia la cara, salud de hombro", type: "isolation" },
-      { name: "Curl Barra EZ", sets: 4, reps: "8-10", rest: "90 seg", notes: "Codos fijos, supina al subir, baja en 3 segundos", type: "compound" },
-      { name: "Curl Martillo Mancuernas", sets: 3, reps: "10-12", rest: "60 seg", notes: "Agarre neutro, alterna o simultáneo, trabaja braquial", type: "isolation" },
+      { name: "Jalón al Pecho", sets: 4, reps: "6-10", rest: "2 min", notes: "Agarre prono ancho, lleva la barra al pecho, retrae escápulas al bajar", type: "compound", video: "https://youtube.com/shorts/O2KKmriBsK0" },
+      { name: "Remo con Barra Sentado (polea baja)", sets: 4, reps: "8-10", rest: "90 seg", notes: "Pecho afuera, tira hacia el ombligo, no redondees la lumbar", type: "compound", video: "https://www.youtube.com/shorts/WFo5wJfmqN4" },
+      { name: "Remo Máquina Cerrada", sets: 3, reps: "10-12", rest: "75 seg", notes: "Agarre neutro, aprieta escápulas al final del recorrido", type: "compound", video: "https://www.youtube.com/shorts/f-erDgYjlzQ" },
+      { name: "Face Pull con Cuerda", sets: 3, reps: "15", rest: "60 seg", notes: "Codos altos a la altura de los hombros, tira hacia la cara, salud de hombro", type: "isolation", video: "https://www.youtube.com/shorts/IeOqdw9WI90" },
+      { name: "Curl Barra EZ", sets: 4, reps: "8-10", rest: "90 seg", notes: "Codos fijos, supina al subir, baja en 3 segundos", type: "compound", video: "https://www.youtube.com/shorts/1nzqkCLd_hE" },
+      { name: "Curl Martillo Mancuernas", sets: 3, reps: "10-12", rest: "60 seg", notes: "Agarre neutro, alterna o simultáneo, trabaja braquial", type: "isolation", video: "https://www.youtube.com/shorts/rmOiSECL78s" },
     ]
   },
   {
@@ -62,12 +62,12 @@ const routine = [
     focus: "Fuerza + Volumen completo",
     tip: "Día más duro de la semana — cuáds, isquios y gemelos. Descansa bien el día anterior",
     exercises: [
-      { name: "Hack Squat", sets: 4, reps: "6-8", rest: "3 min", notes: "Pies a anchura de cadera, baja hasta 90°, rodillas en línea con pies", type: "compound" },
-      { name: "Prensa de Piernas", sets: 4, reps: "10-12", rest: "90 seg", notes: "Pies altos y separados para más glúteo-isquio, no bloquees rodillas arriba", type: "compound" },
-      { name: "Extensión de Cuádriceps", sets: 3, reps: "12-15", rest: "60 seg", notes: "Contracción 2 seg arriba, baja lento y controlado", type: "isolation" },
-      { name: "Curl Femoral Tumbado", sets: 3, reps: "12-15", rest: "60 seg", notes: "Caderas pegadas al banco, flexión completa, aprieta isquio arriba", type: "isolation" },
-      { name: "Zancada con Mancuernas", sets: 3, reps: "10 c/pierna", rest: "75 seg", notes: "Torso recto, rodilla trasera casi toca el suelo, empuja desde el talón delantero", type: "compound" },
-      { name: "Elevación de Gemelos de Pie", sets: 4, reps: "15-20", rest: "45 seg", notes: "Rango completo, estira abajo, aguanta 1 seg arriba en punta", type: "isolation" },
+      { name: "Hack Squat", sets: 4, reps: "6-8", rest: "3 min", notes: "Pies a anchura de cadera, baja hasta 90°, rodillas en línea con pies", type: "compound", video: "https://www.youtube.com/shorts/9E0oA25ZBlo" },
+      { name: "Prensa de Piernas", sets: 4, reps: "10-12", rest: "90 seg", notes: "Pies altos y separados para más glúteo-isquio, no bloquees rodillas arriba", type: "compound", video: "https://www.youtube.com/shorts/0dL8o6staRM" },
+      { name: "Extensión de Cuádriceps", sets: 3, reps: "12-15", rest: "60 seg", notes: "Contracción 2 seg arriba, baja lento y controlado", type: "isolation", video: "https://www.youtube.com/shorts/ESxIZ13Uq6c" },
+      { name: "Curl Femoral Tumbado", sets: 3, reps: "12-15", rest: "60 seg", notes: "Caderas pegadas al banco, flexión completa, aprieta isquio arriba", type: "isolation", video: "https://www.youtube.com/shorts/ENDnSAkatcw" },
+      { name: "Zancada con Mancuernas", sets: 3, reps: "10 c/pierna", rest: "75 seg", notes: "Torso recto, rodilla trasera casi toca el suelo, empuja desde el talón delantero", type: "compound", video: "https://www.youtube.com/shorts/uCyxYGkvKO4" },
+      { name: "Elevación de Gemelos de Pie", sets: 4, reps: "15-20", rest: "45 seg", notes: "Rango completo, estira abajo, aguanta 1 seg arriba en punta", type: "isolation", video: "https://youtube.com/shorts/goHLe1fninw" },
     ]
   }
 ];
@@ -262,6 +262,29 @@ export default function App() {
                       }}>
                         {ex.type === "compound" ? "COMPUESTO" : "AISLAMIENTO"}
                       </span>
+                      {ex.video && (
+                        <a
+                          href={ex.video}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: "inline-flex", alignItems: "center", gap: 4,
+                            background: "#FF0000",
+                            color: "#fff",
+                            padding: "2px 8px",
+                            borderRadius: 20,
+                            fontSize: 9,
+                            fontFamily: "monospace",
+                            letterSpacing: "0.1em",
+                            textDecoration: "none",
+                            fontWeight: "bold",
+                            flexShrink: 0
+                          }}
+                        >
+                          ▶ VER
+                        </a>
+                      )}
                     </div>
 
                     <div style={{ display: "flex", gap: 20, marginBottom: 8 }}>
