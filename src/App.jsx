@@ -74,9 +74,41 @@ const routine = [
 export default function App() {
   const [activeDay, setActiveDay] = useState(0);
   const [checked, setChecked] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [completedDay, setCompletedDay] = useState(null);
 
   const day = routine[activeDay];
-  const toggleCheck = (key) => setChecked(prev => ({ ...prev, [key]: !prev[key] }));
+
+  const toggleCheck = (key) => {
+    const newChecked = { ...checked, [key]: !checked[key] };
+    setChecked(newChecked);
+
+    // Check if all exercises of current day are now completed
+    const total = routine[activeDay].exercises.length;
+    const doneCount = routine[activeDay].exercises.filter((_, i) => newChecked[`${activeDay}-${i}`]).length;
+    if (doneCount === total && !checked[key] === true) {
+      setTimeout(() => {
+        setCompletedDay(activeDay);
+        setShowModal(true);
+      }, 400);
+    }
+  };
+
+  const handleReset = () => {
+    const newChecked = { ...checked };
+    routine[completedDay].exercises.forEach((_, i) => {
+      delete newChecked[`${completedDay}-${i}`];
+    });
+    setChecked(newChecked);
+    setShowModal(false);
+    setCompletedDay(null);
+  };
+
+  const handleKeep = () => {
+    setShowModal(false);
+    setCompletedDay(null);
+  };
+
   const completedCount = day.exercises.filter((_, i) => checked[`${activeDay}-${i}`]).length;
 
   return (
@@ -274,6 +306,66 @@ export default function App() {
           ))}
         </div>
       </div>
+
+      {/* Completion Modal */}
+      {showModal && completedDay !== null && (
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 100,
+          background: "rgba(0,0,0,0.85)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          padding: 24,
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)"
+        }}>
+          <div style={{
+            background: "#13131e",
+            border: `1px solid ${routine[completedDay].color}55`,
+            borderRadius: 24,
+            padding: "36px 28px",
+            maxWidth: 340,
+            width: "100%",
+            textAlign: "center",
+            boxShadow: `0 0 60px ${routine[completedDay].color}22`
+          }}>
+            <div style={{ fontSize: 56, marginBottom: 16 }}>🎉</div>
+            <div style={{ fontSize: 11, letterSpacing: "0.25em", color: routine[completedDay].color, fontFamily: "monospace", marginBottom: 10 }}>
+              ¡DÍA {routine[completedDay].day} COMPLETADO!
+            </div>
+            <h3 style={{ fontSize: 22, fontWeight: "normal", margin: "0 0 10px", letterSpacing: "0.05em" }}>
+              ¡Lo has clavado! {routine[completedDay].emoji}
+            </h3>
+            <p style={{ fontSize: 13, color: "#888", lineHeight: 1.6, margin: "0 0 28px" }}>
+              Has completado todos los ejercicios del día de{" "}
+              <span style={{ color: routine[completedDay].accent }}>{routine[completedDay].label}</span>.
+              <br/>¿Quieres limpiar el día para la próxima sesión?
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <button
+                onClick={handleReset}
+                style={{
+                  background: routine[completedDay].color,
+                  border: "none", borderRadius: 14, padding: "14px",
+                  color: "#fff", fontSize: 14, fontFamily: "monospace",
+                  letterSpacing: "0.1em", cursor: "pointer", fontWeight: "bold"
+                }}
+              >
+                ✓ SÍ, LIMPIAR PARA LA PRÓXIMA
+              </button>
+              <button
+                onClick={handleKeep}
+                style={{
+                  background: "transparent", border: "1px solid #333",
+                  borderRadius: 14, padding: "14px", color: "#666",
+                  fontSize: 13, fontFamily: "monospace",
+                  letterSpacing: "0.08em", cursor: "pointer"
+                }}
+              >
+                MANTENER COMO ESTÁ
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
