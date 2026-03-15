@@ -84,6 +84,20 @@ const toDateStr = (d) => d.toISOString().split("T")[0];
 
 export default function App() {
   const [activeDay, setActiveDay] = useState(0);
+  const [unlocked, setUnlocked] = useState(() => localStorage.getItem("sg_auth") === "ok");
+  const [pwInput, setPwInput] = useState("");
+  const [pwError, setPwError] = useState(false);
+
+  const handleLogin = () => {
+    if (pwInput === "culobonito2026") {
+      localStorage.setItem("sg_auth", "ok");
+      setUnlocked(true);
+      setPwError(false);
+    } else {
+      setPwError(true);
+      setPwInput("");
+    }
+  };
   const [activeTab, setActiveTab] = useState("routine"); // "routine" | "calendar"
   const [checked, setChecked] = useState({});
   const [showModal, setShowModal] = useState(false);
@@ -134,6 +148,41 @@ export default function App() {
   const [timerConfig, setTimerConfig] = useState(false);
   const [timerDuration, setTimerDuration] = useState(90);
   const timerRef = useRef(null);
+  const audioCtxRef = useRef(null);
+  const alarmRef = useRef(null);
+
+  const initAudio = () => {
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  };
+
+  const playAlarm = () => {
+    const ctx = audioCtxRef.current;
+    if (!ctx) return;
+    let count = 0;
+    const beep = () => {
+      if (!alarmRef.current) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      osc.frequency.setValueAtTime(660, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.6, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.4);
+      count++;
+      if (alarmRef.current) alarmRef.current = setTimeout(beep, 1200);
+    };
+    alarmRef.current = setTimeout(beep, 0);
+  };
+
+  const stopAlarm = () => {
+    if (alarmRef.current) { clearTimeout(alarmRef.current); alarmRef.current = null; }
+  };
 
   useEffect(() => {
     if (timerRunning) {
@@ -143,6 +192,9 @@ export default function App() {
             clearInterval(timerRef.current);
             setTimerRunning(false);
             setTimerDone(true);
+            // Vibrate (Android) + alarm
+            if (navigator.vibrate) navigator.vibrate([400, 200, 400, 200, 400]);
+            setTimeout(() => playAlarm(), 0);
             return 0;
           }
           return s - 1;
@@ -153,6 +205,8 @@ export default function App() {
   }, [timerRunning]);
 
   const startTimer = () => {
+    initAudio();
+    stopAlarm();
     setTimerSeconds(timerDuration);
     setTimerDone(false);
     setTimerRunning(true);
@@ -161,6 +215,7 @@ export default function App() {
 
   const resetTimer = () => {
     clearInterval(timerRef.current);
+    stopAlarm();
     setTimerSeconds(timerDuration);
     setTimerRunning(false);
     setTimerDone(false);
@@ -186,6 +241,49 @@ export default function App() {
     }
     return count;
   })();
+
+  if (!unlocked) return (
+    <div style={{
+      minHeight: "100vh", background: "#0a0a0f",
+      fontFamily: "'Georgia', serif", color: "#f0ede8",
+      display: "flex", alignItems: "center", justifyContent: "center", padding: 24
+    }}>
+      <div style={{ maxWidth: 320, width: "100%", textAlign: "center" }}>
+        <div style={{ fontSize: 64, marginBottom: 16 }}>🔒</div>
+        <div style={{ fontSize: 11, letterSpacing: "0.25em", color: "#FF6B9D", fontFamily: "monospace", marginBottom: 8 }}>SOUKAINA GYM</div>
+        <h2 style={{ fontSize: 22, fontWeight: "normal", margin: "0 0 32px", color: "#f0ede8" }}>Acceso privado</h2>
+        <input
+          type="password"
+          value={pwInput}
+          onChange={e => { setPwInput(e.target.value); setPwError(false); }}
+          onKeyDown={e => e.key === "Enter" && handleLogin()}
+          placeholder="Contraseña"
+          autoFocus
+          style={{
+            width: "100%", padding: "14px 18px",
+            background: "#13131e",
+            border: `1.5px solid ${pwError ? "#FF6B9D" : "#2a2a3e"}`,
+            borderRadius: 14, color: "#f0ede8",
+            fontSize: 16, fontFamily: "monospace",
+            outline: "none", marginBottom: 10,
+            textAlign: "center", letterSpacing: "0.2em",
+            boxSizing: "border-box"
+          }}
+        />
+        {pwError && (
+          <div style={{ fontSize: 12, color: "#FF6B9D", fontFamily: "monospace", marginBottom: 10, letterSpacing: "0.1em" }}>
+            Contraseña incorrecta
+          </div>
+        )}
+        <button onClick={handleLogin} style={{
+          width: "100%", padding: "14px",
+          background: "#FF6B9D", border: "none", borderRadius: 14,
+          color: "#fff", fontSize: 14, fontFamily: "monospace",
+          letterSpacing: "0.15em", cursor: "pointer", fontWeight: "bold"
+        }}>ENTRAR</button>
+      </div>
+    </div>
+  );
 
   return (
     <div style={{ minHeight: "100vh", background: "#0a0a0f", fontFamily: "'Georgia', serif", color: "#f0ede8", paddingBottom: 100 }}>
